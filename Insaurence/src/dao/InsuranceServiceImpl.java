@@ -135,7 +135,7 @@ public class InsuranceServiceImpl implements IPolicyService {
 			pstmt.setInt(1, policyId);
 			
 			status = pstmt.execute();
-			if(!status)
+			if(pstmt.getUpdateCount()==0)
             {
                 throw new PolicyNotFoundException(policyId);
             }
